@@ -9,4 +9,5 @@ minutes = (seconds_input % 3600)//60
 # Считаем секунды
 seconds = (seconds_input % 60)
 
-print ("\n",hours,":",minutes,":",seconds)
+#print ("\n",hours,":",minutes,":",seconds)
+print (f'\n{hours} : {minutes} : {seconds}')
