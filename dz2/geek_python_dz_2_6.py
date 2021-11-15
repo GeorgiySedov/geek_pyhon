@@ -18,6 +18,7 @@
 # “ед”: [“шт.”]
 # }
 
+# инициализация временных переменных и списка
 name = None
 price = None
 count = None
@@ -26,42 +27,56 @@ goods = list()
 i=0
 
 while(True):
+    # запрос названия
     name = input('Введите название товара >>> ')
+    # запрос цены с проверкой на int
     while (not price):
         try:
             price = int(input('Введите цену товара >>> '))
         except:
             print ('Ошибка: Неверный ввод цены')
+    # запрос кол-ва с проверкой на int
     while (not count):
         try:
             count = int(input('Введите количество товара >>> '))
         except:
             print ('Ошибка: Неверный ввод количества')
+    # Запрос единицы измерения
     unit = input('Введите название единицы измерения >>> ')
+    # добавление в словарь номера и кортежа
     goods.append((i, {"название":name, "цена":price, "количество":count, "ед":unit}))
+    # инкременация i
     i +=1
+    # обнуление временных переменных
     name = None
     price = None
     count = None
     unit = None
     print ('*******************')
+    # запрос на продолжение ввода
     ans = input ('Продолжить ввод ? y/n >>>')
     if ans != "y":
+        # или выход из цикла
         break
 
+# вывод структуры
 print("Структура:\n",goods)
 
+# инициализация переменных
 i = 0
 temp_name = []
 temp_price = []
 temp_count = []
 temp_unit = []
 
+# для всех записей в goods
 for temp_value in goods:
+    # получаем значения по ключам и складываем их в списки
     temp_name.append(temp_value[1].get("название"))
     temp_price.append(temp_value[1].get("цена"))
     temp_count.append(temp_value[1].get("количество"))
     temp_unit.append(temp_value[1].get("ед"))
 
+# формируем и выводим итоговый словарь
 goods_dict = {"название": temp_name, "цена": temp_price, "количество": temp_count, "ед": temp_unit}
 print ("отчёт\n", goods_dict)
