@@ -1,0 +1,3 @@
+first string contains 5 words
+second string 3
+third string contains 4
